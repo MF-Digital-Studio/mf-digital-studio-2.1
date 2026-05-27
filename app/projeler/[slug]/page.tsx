@@ -3,6 +3,38 @@ import { notFound } from "next/navigation"
 import { FooterSection } from "@/components/footer-section"
 import { ProjectDetailClient } from "./project-detail-client"
 
+import { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const project = projectsData.find(p => p.slug === slug)
+
+  if (!project) {
+    return {
+      title: "Proje Bulunamadı | MF Digital Studio",
+      description: "Aradığınız proje bulunamadı."
+    }
+  }
+
+  const title = `${project.title} | Proje Detayı | MF Digital Studio`
+  const description = project.description.length > 155 ? project.description.substring(0, 155) + "..." : project.description
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/projeler/${slug}`
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/projeler/${slug}`,
+      type: "website",
+      siteName: "MF Digital Studio",
+    }
+  }
+}
+
 export function generateStaticParams() {
   return projectsData.map((project) => ({
     slug: project.slug,

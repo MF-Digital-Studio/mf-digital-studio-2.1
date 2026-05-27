@@ -54,15 +54,11 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
               <motion.div variants={fadeInUp} transition={{ duration: 0.8, ease: "easeOut" }} className="flex flex-wrap gap-4 items-center">
                 <a 
                   href={project.liveUrl} 
-                  target={project.liveUrl !== "#" ? "_blank" : undefined}
-                  rel={project.liveUrl !== "#" ? "noopener noreferrer" : undefined}
-                  className={`flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold transition-all ${
-                    project.liveUrl !== "#" 
-                    ? "bg-black text-white hover:scale-105" 
-                    : "bg-black/5 text-black/40 cursor-not-allowed"
-                  }`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold transition-all bg-black text-white hover:scale-105"
                 >
-                  Canlıyı Aç {project.liveUrl !== "#" && <ArrowUpRight className="w-4 h-4" />}
+                  Canlıyı Aç <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <Link href="/projeler" className="flex items-center gap-2 px-8 py-4 rounded-full text-sm font-bold border border-black/10 hover:bg-black/5 transition-colors">
                   Tüm Projelere Dön
@@ -148,7 +144,7 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
               className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8"
             >
               <div className="md:col-span-4">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-black/40 pt-1 border-t border-black/10">Hedef / Problem</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black/40 pt-1 border-t border-black/10">Hedef</h2>
               </div>
               <div className="md:col-span-8 text-lg md:text-xl text-black/80 leading-relaxed font-medium">
                 {project.sections.hedef}
@@ -163,7 +159,7 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
               className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8"
             >
               <div className="md:col-span-4">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-black/40 pt-1 border-t border-black/10">Çözüm / Yaklaşım</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black/40 pt-1 border-t border-black/10">Yaklaşımımız</h2>
               </div>
               <div className="md:col-span-8 text-lg md:text-xl text-black/80 leading-relaxed font-medium">
                 {project.sections.cozum}
@@ -178,7 +174,7 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
               className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8"
             >
               <div className="md:col-span-4">
-                <h2 className="text-sm font-bold uppercase tracking-widest text-black/40 pt-1 border-t border-black/10">Sonuç / Kazanım</h2>
+                <h2 className="text-sm font-bold uppercase tracking-widest text-black/40 pt-1 border-t border-black/10">Ortaya Çıkan Değer</h2>
               </div>
               <div className="md:col-span-8 text-lg md:text-xl text-black/80 leading-relaxed font-medium">
                 {project.sections.sonuc}
