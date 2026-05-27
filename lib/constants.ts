@@ -1,0 +1,6 @@
+export const CONTACT_EMAIL = "info@mfdigitalstudio.com"
+export const CONTACT_PHONE_DISPLAY = "+90 501 654 68 61"
+export const CONTACT_PHONE_LINK = "tel:+905016546861"
+export const WHATSAPP_URL = "https://wa.me/905016546861"
+export const INSTAGRAM_URL = "https://www.instagram.com/mf.digitalstudio/"
+export const BASE_URL = "https://mf-digital-studio-2-1.vercel.app"
