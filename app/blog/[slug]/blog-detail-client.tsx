@@ -10,6 +10,7 @@ interface BlogDetailClientProps {
   relatedPosts: BlogPost[];
 }
 
+
 export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) {
   return (
     <article className="min-h-screen bg-white pt-32 pb-24 text-zinc-900 overflow-hidden">
@@ -28,7 +29,7 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
 
           {/* Article Hero */}
           <header className="mb-16">
-            <motion.div 
+            <motion.div
               className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-zinc-500 mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -45,7 +46,7 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
               <span>{post.readingTime}</span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-8 leading-[1.15] text-zinc-900"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -53,8 +54,8 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
             >
               {post.title}
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl md:text-2xl text-zinc-500 leading-relaxed font-medium"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -64,15 +65,15 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
             </motion.p>
           </header>
 
-          <motion.div 
-            className="w-full h-px bg-zinc-200 mb-16 origin-left" 
+          <motion.div
+            className="w-full h-px bg-zinc-200 mb-16 origin-left"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           />
 
           {/* Article Content */}
-          <motion.div 
+          <motion.div
             className="w-full max-w-none 
               [&>h2]:font-black [&>h2]:tracking-tight [&>h2]:text-3xl md:[&>h2]:text-4xl [&>h2]:mt-20 [&>h2]:mb-8 [&>h2]:text-zinc-900
               [&>h3]:font-bold [&>h3]:tracking-tight [&>h3]:text-2xl md:[&>h3]:text-3xl [&>h3]:mt-12 [&>h3]:mb-6 [&>h3]:text-zinc-800
@@ -89,7 +90,7 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
           <div className="w-full h-px bg-zinc-200 mt-24 mb-16" />
 
           {/* Article CTA */}
-          <motion.div 
+          <motion.div
             className="bg-zinc-50 border border-zinc-200 rounded-3xl p-8 md:p-12 mb-24 text-center"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +101,7 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
             <p className="text-zinc-500 mb-8 text-base md:text-lg">
               Web sitenizin işletmeniz için daha güçlü çalışmasını istiyorsanız, MF Digital Studio ile ihtiyacınıza uygun bir yol haritası çıkarabiliriz.
             </p>
-            <Link 
+            <Link
               href="/iletisim"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-black text-white font-bold tracking-wide hover:bg-zinc-800 hover:-translate-y-1 transition-all shadow-lg shadow-black/20"
             >
@@ -111,7 +112,7 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
 
         {/* Related Posts - Full Width inside Container */}
         {relatedPosts.length > 0 && (
-          <motion.div 
+          <motion.div
             className="pt-16 border-t border-zinc-200"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -128,7 +129,7 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Link 
+                  <Link
                     href={`/blog/${relatedPost.slug}`}
                     className="group flex flex-col justify-between h-full p-8 rounded-3xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
