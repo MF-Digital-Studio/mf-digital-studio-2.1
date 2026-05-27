@@ -10,7 +10,6 @@ interface BlogDetailClientProps {
   relatedPosts: BlogPost[];
 }
 
-
 export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) {
   return (
     <article className="min-h-screen bg-white pt-32 pb-24 text-zinc-900 overflow-hidden">
