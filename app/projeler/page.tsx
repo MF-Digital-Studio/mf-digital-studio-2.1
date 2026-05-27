@@ -70,9 +70,9 @@ export default function ProjectsPage() {
                     <div className="flex flex-col gap-24 lg:gap-32">
                       {featured.map((project, index) => (
                         <div key={project.id} className={`flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-16 items-center`}>
-                          {/* Image Placeholder */}
-                          <div className={`lg:col-span-8 aspect-[4/3] md:aspect-[16/10] w-full ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
-                            <project.Placeholder />
+                          {/* Image */}
+                          <div className={`lg:col-span-8 aspect-[4/3] md:aspect-[16/10] w-full relative rounded-2xl overflow-hidden ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                            <img src={project.mainImage} alt={project.title} className="w-full h-full object-cover" />
                           </div>
                           
                           {/* Content */}
@@ -111,8 +111,8 @@ export default function ProjectsPage() {
                     <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 pt-8 lg:pt-16 border-t border-black/5">
                       {normal.map((project) => (
                         <div key={project.id} className="group flex flex-col h-full">
-                          <div className="aspect-[4/3] mb-6 overflow-hidden">
-                            <project.Placeholder />
+                          <div className="aspect-[4/3] mb-6 overflow-hidden rounded-2xl relative bg-black/5">
+                            <img src={project.mainImage} alt={project.title} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex items-center justify-between mb-3">
                             <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>

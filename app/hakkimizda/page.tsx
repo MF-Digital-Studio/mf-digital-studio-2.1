@@ -170,11 +170,13 @@ function TeamSection() {
     {
       name: "Faruk Özgü",
       role: "Ortak Kurucu",
+      image: "/about/faruk.png",
       bio: "Tasarım, teknik geliştirme ve ürün mimarisi odaklı kurucu. Web siteleri, e-ticaret altyapıları ve kullanıcı deneyimi tasarımı konularında uzmanlaşmıştır."
     },
     {
       name: "Muratcan Salih",
       role: "Ortak Kurucu",
+      image: "/about/muratcan.png",
       bio: "Marka iletişimi, müşteri ilişkileri ve stratejik ortaklıklar odaklı kurucu. Sosyal medya stratejisi ve marka anlaşmaları konularında deneyimlidir."
     }
   ]
@@ -203,7 +205,9 @@ function TeamSection() {
               transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.15 }}
               className="flex flex-col group w-full md:w-1/3 max-w-[360px]"
             >
-              <div className="w-full aspect-square md:h-[320px] rounded-2xl mb-6 bg-gradient-to-br from-zinc-800 to-zinc-950 overflow-hidden" />
+              <div className="w-full aspect-square md:h-[320px] rounded-2xl mb-6 bg-gradient-to-br from-zinc-800 to-zinc-950 overflow-hidden relative">
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+              </div>
               <h3 className="font-syne text-lg font-bold text-black mb-1">{member.name}</h3>
               <p className="text-green-500 text-[13px] uppercase tracking-[0.1em] font-medium mb-3">{member.role}</p>
               <p className="text-[#666] text-[13px] leading-[1.8] line-clamp-2 mb-4">{member.bio}</p>

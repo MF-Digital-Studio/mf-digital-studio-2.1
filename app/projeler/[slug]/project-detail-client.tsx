@@ -106,16 +106,16 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
         </motion.div>
       </section>
 
-      {/* Main Visual Placeholder */}
+      {/* Main Visual */}
       <section className="pb-16 md:pb-24">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
-            className="w-full aspect-[4/3] md:aspect-[21/9] bg-black/5 overflow-hidden"
+            className="w-full aspect-[4/3] md:aspect-[21/9] bg-black/5 overflow-hidden rounded-2xl relative"
           >
-            <project.Placeholder />
+            <img src={project.mainImage} alt={project.title} className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </section>
@@ -189,7 +189,7 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
         </div>
       </section>
 
-      {/* Secondary Visual Placeholder */}
+      {/* Secondary Visual */}
       <section className="pb-24 md:pb-32">
         <div className="container mx-auto px-4 md:px-6 max-w-[1000px]">
           <motion.div 
@@ -197,11 +197,9 @@ export function ProjectDetailClient({ slug, prevSlug, nextSlug }: { slug: string
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full aspect-square md:aspect-[16/9] bg-black/5 overflow-hidden flex items-center justify-center relative"
+            className="w-full aspect-square md:aspect-[16/9] bg-black/5 overflow-hidden rounded-2xl relative"
           >
-             <div className="absolute inset-0 p-8 md:p-16">
-               <project.Placeholder />
-             </div>
+             <img src={project.secondaryImage} alt={`${project.title} Detay`} className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </section>
