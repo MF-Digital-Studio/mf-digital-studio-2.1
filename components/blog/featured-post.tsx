@@ -2,6 +2,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { BlogPost } from "@/lib/blog"
 import { ArrowRight } from "lucide-react"
+import { Logo } from "@/components/logo"
 
 export function FeaturedPost({ post }: { post: BlogPost }) {
   return (
@@ -38,8 +39,8 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
       </div>
       <div className="order-1 lg:order-2 aspect-square md:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-zinc-50 to-zinc-100 border border-zinc-200 relative flex items-center justify-center">
         <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-        <div className="text-zinc-300 font-syne text-9xl font-black tracking-tighter opacity-50 select-none mix-blend-overlay">
-          MF.
+        <div className="opacity-20 select-none mix-blend-overlay">
+          <Logo variant="black" className="w-48 h-auto pointer-events-none" />
         </div>
       </div>
     </motion.article>

@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion"
 import { ArrowUpRight, ArrowRight, Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/constants"
-
+import { Logo } from "@/components/logo"
 export function FooterSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
@@ -112,9 +112,7 @@ export function FooterSection() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="font-syne mb-4 text-2xl font-bold text-foreground">
-              MF<span className="text-muted-foreground">.</span>
-            </div>
+            <Logo variant="white" className="h-10 md:h-12 mb-6" />
             <p className="text-pretty text-muted-foreground">
               Dijital dünyada markanızı öne çıkaracak yenilikçi çözümler sunuyoruz.
             </p>

@@ -30,13 +30,13 @@ function AboutHero() {
     <section className="relative min-h-[100vh] flex items-center justify-center bg-white overflow-hidden pt-24 pb-16">
       {/* large ghost circle outline */}
       <div className="absolute right-[-100px] bottom-[-100px] w-[600px] h-[600px] rounded-full border border-black/5 z-0 pointer-events-none" />
-      
+
       <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10">
         <motion.div
           style={{ y, opacity }}
           className="flex flex-col gap-6"
         >
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -45,8 +45,8 @@ function AboutHero() {
             <span className="block text-black text-[clamp(3rem,7vw,6rem)]">Dijitali</span>
             <span className="block text-[#0a0a0a] text-[clamp(3rem,7vw,6rem)]">Şekillendiriyoruz</span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
@@ -55,7 +55,7 @@ function AboutHero() {
             2026'dan bu yana markaların dijital dünyada güçlü bir iz bırakmasına yardımcı oluyoruz. Yaratıcılık, strateji ve teknolojiyi bir araya getiriyoruz.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -76,7 +76,7 @@ function StorySection() {
     <section className="bg-white py-[120px] border-b border-black/5">
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -86,8 +86,8 @@ function StorySection() {
             <span className="text-green-500 text-xs font-bold uppercase tracking-widest">HİKAYEMİZ</span>
             <h2 className="font-syne text-4xl md:text-5xl font-bold text-black">Neden Varız?</h2>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -132,7 +132,7 @@ function ValuesSection() {
   return (
     <section className="bg-white py-[120px]">
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -186,7 +186,7 @@ function TeamSection() {
   return (
     <section className="bg-white py-[120px] border-t border-black/5">
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -213,10 +213,10 @@ function TeamSection() {
               <h3 className="font-syne text-lg font-bold text-black mb-1">{member.name}</h3>
               <p className="text-green-500 text-[13px] uppercase tracking-[0.1em] font-medium mb-3">{member.role}</p>
               <p className="text-[#666] text-[13px] leading-[1.8] line-clamp-2 mb-4">{member.bio}</p>
-              
+
               <div className="flex items-center gap-4 mt-auto">
                 <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-black/40 hover:text-green-500 transition-colors">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                 </a>
               </div>
             </motion.div>
@@ -245,7 +245,7 @@ function AboutFaqSection() {
     },
     {
       question: "Bir web sitesi ortalama ne kadar sürede yayına alınır?",
-      answer: "Kurumsal bir web sitesi için ortalama 3-4 hafta, e-ticaret projeleri için 5-7 hafta öngörüyoruz. Kapsamı daha küçük olan landing page projelerini ise 7-10 iş günü içinde teslim edebiliyoruz. Her proje öncesinde net bir zaman çizelgesi paylaşıyoruz."
+      answer: "Kurumsal bir web sitesi için ortalama 2-4 hafta, e-ticaret projeleri için 4-6 hafta öngörüyoruz. Kapsamı daha küçük olan landing page projelerini ise 7-10 iş günü içinde teslim edebiliyoruz. Her proje öncesinde net bir zaman çizelgesi paylaşıyoruz."
     },
     {
       question: "QR menü veya yönetim paneli sonradan eklenebilir mi?",
@@ -329,11 +329,10 @@ function AboutFaqSection() {
                     {faq.question}
                   </h3>
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
-                      isOpen
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${isOpen
                         ? "border-green-500 bg-green-500 text-white"
                         : "border-[rgba(0,0,0,0.12)] bg-transparent text-black group-hover:border-black/30"
-                    }`}
+                      }`}
                   >
                     {isOpen ? (
                       <X className="h-4 w-4" />

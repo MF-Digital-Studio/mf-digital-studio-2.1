@@ -3,25 +3,40 @@ import { Analytics } from '@vercel/analytics/next'
 import { Navigation } from '@/components/navigation'
 import './globals.css'
 
+import { BASE_URL, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_NAME } from '@/lib/constants'
+
 export const metadata: Metadata = {
-  title: 'MF Digital Studio | Dijital Ajans',
-  description: 'Dijitalde sınırları kaldırın. Web geliştirme, e-ticaret, SEO ve sosyal medya yönetimi hizmetleri.',
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  keywords: ['web tasarım', 'e-ticaret sitesi', 'SEO hizmeti', 'sosyal medya yönetimi', 'yönetim paneli', 'dijital ajans', 'web tasarım ajansı', 'MF Digital Studio'],
+  openGraph: {
+    type: 'website',
+    locale: 'tr_TR',
+    siteName: SITE_NAME,
+    url: BASE_URL,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/favicon.png',
     apple: '/apple-icon.png',
   },
 }

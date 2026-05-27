@@ -53,8 +53,54 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   const prevProject = projectIndex > 0 ? projectsData[projectIndex - 1] : projectsData[projectsData.length - 1]
   const nextProject = projectIndex < projectsData.length - 1 ? projectsData[projectIndex + 1] : projectsData[0]
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": project.title,
+    "description": project.description,
+    "url": `https://www.mfdigitalstudio.com/projeler/${slug}`,
+    "creator": {
+      "@type": "Organization",
+      "name": "MF Digital Studio",
+      "url": "https://www.mfdigitalstudio.com"
+    }
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ana Sayfa",
+        "item": "https://www.mfdigitalstudio.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Projeler",
+        "item": "https://www.mfdigitalstudio.com/projeler"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": project.title,
+        "item": `https://www.mfdigitalstudio.com/projeler/${slug}`
+      }
+    ]
+  }
+
   return (
     <main className="bg-white text-black min-h-screen selection:bg-black selection:text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <ProjectDetailClient 
         slug={project.slug} 
         prevSlug={prevProject.slug} 

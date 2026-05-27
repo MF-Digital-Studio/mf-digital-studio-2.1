@@ -1,8 +1,11 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Projeler | Web Tasarım, QR Menü ve Dijital Deneyim Referansları | MF Digital Studio",
-  description: "MF Digital Studio tarafından tasarlanan web sitesi, QR menü, yönetim paneli ve dijital deneyim projelerini inceleyin."
+  title: "Projeler | Web Tasarım ve Dijital Deneyim Referansları | MF Digital Studio",
+  description: "MF Digital Studio tarafından tasarlanan web sitesi, e-ticaret, yönetim paneli ve dijital deneyim projelerini inceleyin.",
+  alternates: {
+    canonical: '/projeler',
+  },
 }
 
 import { FooterSection } from "@/components/footer-section"

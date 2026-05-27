@@ -6,7 +6,7 @@ import { Menu, X, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { CONTACT_EMAIL, WHATSAPP_URL } from "@/lib/constants"
-
+import { Logo } from "@/components/logo"
 const navLinks = [
   { name: "Hizmetler", href: "/hizmetler", num: "01" },
   { name: "Projeler", href: "/projeler", num: "02" },
@@ -29,6 +29,7 @@ export function Navigation() {
 
   const logoTextColor = isLightMode || isLightHeaderScrolled ? "text-zinc-900" : "text-foreground"
   const logoDotColor = isLightMode || isLightHeaderScrolled ? "text-zinc-400" : "text-muted-foreground"
+  const logoVariant = logoTextColor === "text-zinc-900" ? "black" : "white"
   
   // Clean pill button colors based on theme
   const menuBtnBorder = isLightMode || isLightHeaderScrolled ? "border-black/10 hover:border-black/30" : "border-white/10 hover:border-white/30"
@@ -93,12 +94,7 @@ export function Navigation() {
         }`}
       >
         <div className="container mx-auto max-w-7xl px-4 md:px-6 flex items-center justify-between">
-          <Link
-            href="/"
-            className={`font-syne text-2xl font-black tracking-tighter hover:opacity-80 transition-opacity flex items-center ${logoTextColor}`}
-          >
-            MF<span className={`ml-0.5 text-3xl leading-none ${logoDotColor}`}>.</span>
-          </Link>
+          <Logo variant={logoVariant} className="h-8 md:h-10" />
 
           <button
             onClick={() => setIsMenuOpen(true)}
@@ -126,13 +122,7 @@ export function Navigation() {
           >
             {/* Top Bar inside Overlay */}
             <div className="container mx-auto max-w-7xl px-4 md:px-6 py-6 flex items-center justify-between shrink-0">
-              <Link
-                href="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="font-syne text-2xl font-black tracking-tighter hover:opacity-80 transition-opacity flex items-center text-white"
-              >
-                MF<span className="ml-0.5 text-3xl leading-none text-white/60">.</span>
-              </Link>
+              <Logo variant="white" onClick={() => setIsMenuOpen(false)} className="h-8 md:h-10" />
 
               <button
                 onClick={() => setIsMenuOpen(false)}
