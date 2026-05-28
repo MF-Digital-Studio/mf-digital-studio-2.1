@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion"
 
 const keywords = [
@@ -39,7 +40,7 @@ export function HeroSection() {
   const [isHovering, setIsHovering] = useState(false)
   const [btnTranslate, setBtnTranslate] = useState({ x: 0, y: 0 })
 
-  const handleBtnMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleBtnMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
     const x = (e.clientX - rect.left - rect.width / 2) * 0.4
     const y = (e.clientY - rect.top - rect.height / 2) * 0.4
@@ -168,7 +169,8 @@ export function HeroSection() {
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
           >
-            <button
+            <Link
+              href="/iletisim"
               onMouseMove={handleBtnMove}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={handleBtnLeave}
@@ -194,7 +196,7 @@ export function HeroSection() {
               >
                 <ArrowRight className="h-5 w-5" />
               </span>
-            </button>
+            </Link>
           </motion.div>
         </motion.div>
 
