@@ -9,6 +9,14 @@ import Link from "next/link"
 export default function AboutPage() {
   return (
     <main className="bg-white text-black min-h-screen selection:bg-green-500 selection:text-white font-sans">
+      <style dangerouslySetInnerHTML={{__html: `
+        ::-webkit-scrollbar-track {
+          background: #f5f5f5 !important;
+        }
+        * {
+          scrollbar-color: #22c55e #f5f5f5 !important;
+        }
+      `}} />
       <AboutHero />
       <StorySection />
       <ValuesSection />

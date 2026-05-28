@@ -112,6 +112,14 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{__html: `
+        ::-webkit-scrollbar-track {
+          background: #f5f5f5 !important;
+        }
+        * {
+          scrollbar-color: #22c55e #f5f5f5 !important;
+        }
+      `}} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

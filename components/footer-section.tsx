@@ -6,7 +6,7 @@ import { ArrowUpRight, ArrowRight, Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
 import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_LINK, WHATSAPP_URL } from "@/lib/constants"
 import { Logo } from "@/components/logo"
-export function FooterSection() {
+export function FooterSection({ hideCta = false }: { hideCta?: boolean } = {}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
@@ -21,7 +21,8 @@ export function FooterSection() {
 
       <div className="mx-auto max-w-7xl">
         {/* CTA Section */}
-        <div
+        {!hideCta && (
+          <div
           className="relative z-10 mb-24 min-h-[60vh] flex flex-col items-center justify-center text-center !opacity-100 !visible !transform-none"
           style={{
             opacity: 1,
@@ -102,10 +103,11 @@ export function FooterSection() {
               </a>
             </div>
           </motion.div>
-        </div>
+          </div>
+        )}
 
         {/* Footer content */}
-        <div className="grid gap-12 border-t border-border pt-12 md:grid-cols-3">
+        <div className={`grid gap-12 border-border md:grid-cols-3 ${!hideCta ? 'border-t pt-12' : ''}`}>
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -185,12 +187,12 @@ export function FooterSection() {
         >
           <p>© 2026 MF Digital Studio. Tüm hakları saklıdır.</p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <a href="#" className="transition-colors hover:text-foreground">
+            <Link href="/gizlilik-politikasi" className="transition-colors hover:text-foreground">
               Gizlilik Politikası
-            </a>
-            <a href="#" className="transition-colors hover:text-foreground">
+            </Link>
+            <Link href="/kullanim-sartlari" className="transition-colors hover:text-foreground">
               Kullanım Şartları
-            </a>
+            </Link>
             <button 
               onClick={(e) => {
                 e.preventDefault();
