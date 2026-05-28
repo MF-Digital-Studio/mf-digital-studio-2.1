@@ -3,8 +3,8 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { FooterSection } from "@/components/footer-section"
-import { ArrowRight, MessageCircle, Mail, Instagram, Clock, Target, Map, CheckCircle2, ChevronDown } from "lucide-react"
-import { WHATSAPP_URL, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/constants"
+import { ArrowRight, MessageCircle, Mail, Instagram, Clock, Target, Map, CheckCircle2, ChevronDown, Phone } from "lucide-react"
+import { WHATSAPP_URL, CONTACT_EMAIL, INSTAGRAM_URL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_LINK } from "@/lib/constants"
 
 export default function ContactPage() {
   return (
@@ -100,6 +100,15 @@ function MainContactSection() {
   }
 
   const infoCards = [
+    {
+      icon: <Phone className="w-6 h-6 text-[#a1a1aa]" />,
+      title: "Hızlı İletişim",
+      desc: (
+        <a href={CONTACT_PHONE_LINK} className="hover:text-white transition-colors">
+          {CONTACT_PHONE_DISPLAY}
+        </a>
+      )
+    },
     {
       icon: <Clock className="w-6 h-6 text-[#a1a1aa]" />,
       title: "24 Saat İçinde Dönüş",

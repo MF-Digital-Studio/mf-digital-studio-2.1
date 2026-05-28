@@ -2,6 +2,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { BlogPost } from "@/lib/blog"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function BlogCard({ post, index }: { post: BlogPost; index: number }) {
   return (
@@ -12,7 +13,18 @@ export function BlogCard({ post, index }: { post: BlogPost; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative flex flex-col justify-between p-6 md:p-8 rounded-3xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
     >
-      <div>
+      {post.coverImage && (
+        <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-zinc-100">
+          <Image
+            src={post.coverImage}
+            alt={post.imageAlt || post.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
+      <div className="flex flex-col flex-grow">
         <div className="flex items-center gap-3 text-xs md:text-sm text-zinc-500 mb-4">
           <span className="font-medium tracking-wider uppercase text-zinc-800">{post.category}</span>
           <span>•</span>

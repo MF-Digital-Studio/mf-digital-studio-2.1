@@ -2,14 +2,14 @@
 
 import { useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
-import { ArrowRight, CheckCircle2, Target, PenTool, Code, TrendingUp, ShoppingCart, Search, Share2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, Target, PenTool, Code, TrendingUp, ShoppingCart, Search, Share2, LayoutDashboard } from "lucide-react"
 import { FooterSection } from "@/components/footer-section"
 import Link from "next/link"
 import Image from "next/image"
 
 const servicesData = [
   {
-    title: "Web Geliştirme",
+    title: "Web Tasarım & Geliştirme",
     description: "Markanızın dijital vitrini için hızlı, modern ve dönüşüm odaklı web siteleri geliştiriyoruz.",
     bullets: [
       "Kurumsal web sitesi",
@@ -20,10 +20,12 @@ const servicesData = [
       "Teknik bakım"
     ],
     icon: Code,
-    image: "/images/web-dev.png"
+    image: "/services/web-design-mockup.svg",
+    alt: "Web design and development conceptual mockup",
+    ctaText: "Projeyi konuşalım"
   },
   {
-    title: "E-Ticaret",
+    title: "E-Ticaret Sistemleri",
     description: "Satış sürecinizi kolaylaştıran, güven veren ve ölçeklenebilir e-ticaret deneyimleri tasarlıyoruz.",
     bullets: [
       "Ürün sayfası kurgusu",
@@ -34,10 +36,12 @@ const servicesData = [
       "Yönetilebilir altyapı"
     ],
     icon: ShoppingCart,
-    image: "/images/ecommerce.png"
+    image: "/services/ecommerce-mockup.svg",
+    alt: "E-commerce systems conceptual mockup",
+    ctaText: "E-Ticaret projesi konuşalım"
   },
   {
-    title: "SEO",
+    title: "SEO & İçerik Stratejisi",
     description: "Arama motorlarında görünürlüğünüzü artırmak için teknik, içerik ve strateji tarafını birlikte ele alıyoruz.",
     bullets: [
       "Teknik SEO analizi",
@@ -48,7 +52,9 @@ const servicesData = [
       "Raporlama"
     ],
     icon: Search,
-    image: "/images/seo.png"
+    image: "/services/seo-mockup.svg",
+    alt: "SEO and content strategy conceptual mockup",
+    ctaText: "SEO stratejisi konuşalım"
   },
   {
     title: "Sosyal Medya Yönetimi",
@@ -62,7 +68,27 @@ const servicesData = [
       "Performans takibi"
     ],
     icon: Share2,
-    image: "/images/social-media.png"
+    image: "/services/social-media-mockup.svg",
+    alt: "Social media management conceptual mockup",
+    ctaText: "Sosyal medya yönetimi konuşalım"
+  },
+  {
+    title: "Yönetim Panelleri",
+    description: "İçerik, ürün, sipariş, müşteri veya operasyon süreçlerinizi tek merkezden yönetebileceğiniz özel yönetim panelleri geliştiriyoruz.",
+    detail: "İşletmelerin günlük operasyonlarında kullandığı dağınık araçları tek bir dijital kontrol merkezinde topluyoruz. Ürün yönetimi, içerik güncelleme, sipariş takibi, müşteri yönetimi, kullanıcı rolleri ve raporlama gibi ihtiyaçlara özel admin paneller geliştirerek süreçlerinizi daha hızlı, kontrollü ve ölçülebilir hale getiriyoruz.",
+    bullets: [
+      "Özel admin panel geliştirme",
+      "İçerik, ürün ve sipariş yönetimi",
+      "Kullanıcı rolleri ve yetkilendirme",
+      "Operasyon takibi ve raporlama",
+      "İşletmeye özel modül yapısı"
+    ],
+    icon: LayoutDashboard,
+    image: "/services/admin-panel-mockup.svg",
+    alt: "Admin panel conceptual mockup",
+    ctaText: "Yönetim paneli projesi konuşalım",
+    slug: "yonetim-panelleri",
+    category: "Dijital Sistemler"
   }
 ]
 
@@ -186,6 +212,7 @@ function ServiceRow({ service, index }: { service: any, index: number }) {
         </div>
         <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl text-white">{service.title}</h2>
         <p className="max-w-md text-lg text-muted-foreground">{service.description}</p>
+        {service.detail && <p className="mt-4 max-w-md text-base text-zinc-400">{service.detail}</p>}
         
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-md lg:max-w-none">
           {service.bullets.map((bullet: string, i: number) => (
@@ -198,10 +225,10 @@ function ServiceRow({ service, index }: { service: any, index: number }) {
           ))}
         </div>
 
-        <div className="mt-10 flex items-center gap-2 text-sm font-medium text-white transition-opacity md:opacity-0 md:group-hover:opacity-100 cursor-pointer w-fit">
-          <span>Detayları keşfet</span>
+        <Link href="/iletisim" className="mt-10 flex items-center gap-2 text-sm font-medium text-white transition-opacity md:opacity-0 md:group-hover:opacity-100 cursor-pointer w-fit">
+          <span>{service.ctaText || "Detayları keşfet"}</span>
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-        </div>
+        </Link>
       </div>
 
       <div className="relative z-10 w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-end">
@@ -209,7 +236,7 @@ function ServiceRow({ service, index }: { service: any, index: number }) {
           {service.image ? (
             <Image
               src={service.image}
-              alt={service.title}
+              alt={service.alt || service.title}
               fill
               className="object-cover object-center"
             />

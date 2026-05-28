@@ -4,7 +4,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { ArrowUpRight, ArrowRight, Mail, MapPin, Phone } from "lucide-react"
 import Link from "next/link"
-import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, WHATSAPP_URL } from "@/lib/constants"
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_LINK, WHATSAPP_URL } from "@/lib/constants"
 import { Logo } from "@/components/logo"
 export function FooterSection() {
   const ref = useRef(null)
@@ -134,7 +134,9 @@ export function FooterSection() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-muted-foreground" />
-                {CONTACT_PHONE_DISPLAY}
+                <a href={CONTACT_PHONE_LINK} className="hover:text-foreground transition-colors">
+                  {CONTACT_PHONE_DISPLAY}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-muted-foreground" />
@@ -182,13 +184,22 @@ export function FooterSection() {
           className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground md:flex-row"
         >
           <p>© 2026 MF Digital Studio. Tüm hakları saklıdır.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href="#" className="transition-colors hover:text-foreground">
               Gizlilik Politikası
             </a>
             <a href="#" className="transition-colors hover:text-foreground">
               Kullanım Şartları
             </a>
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new Event("mf-open-cookie-preferences"));
+              }}
+              className="transition-colors hover:text-foreground text-left"
+            >
+              Çerez Tercihleri
+            </button>
           </div>
         </motion.div>
       </div>

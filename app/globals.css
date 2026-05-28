@@ -165,8 +165,10 @@ html {
   will-change: transform;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes marquee-reverse {
@@ -179,8 +181,10 @@ html {
   will-change: transform;
 }
 
-.animate-marquee-reverse:hover {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .animate-marquee-reverse:hover {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes timeline-dot {

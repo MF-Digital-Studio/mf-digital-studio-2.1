@@ -11,6 +11,8 @@ export interface BlogPost {
   readingTime: string;
   featured: boolean;
   keywords: string[];
+  coverImage: string;
+  imageAlt: string;
 }
 
 export const BLOG_CATEGORIES = [
@@ -36,6 +38,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "8 dk okuma",
     featured: true,
     keywords: ["küçük işletmeler için web sitesi", "işletme web sitesi", "web tasarım", "kurumsal web sitesi", "dijital görünürlük", "müşteri kazanımı"],
+    coverImage: "/blog/small-business-website.png",
+    imageAlt: "Küçük işletmeler için web sitesi blog görseli",
     content: `
       <p>Teknolojinin hayatımızın her alanına nüfuz ettiği günümüz dünyasında, ticari faaliyet gösteren irili ufaklı tüm işletmeler için dijital varlık oluşturmak artık bir lüks değil, tartışmasız bir zorunluluk haline geldi. Özellikle küçük işletmeler, yerel pazarda veya ulusal arenada rakiplerinin önüne geçebilmek, müşterilerine daha hızlı ulaşabilmek ve güven inşa edebilmek için profesyonel bir web sitesine ihtiyaç duyuyorlar. Bu yazımızda, küçük işletmelerin neden mutlaka bir web sitesine sahip olması gerektiğini, sosyal medya kullanımının neden tek başına yeterli olmadığını ve iyi bir web tasarımının müşteri kazanımına nasıl etki ettiğini tüm detaylarıyla inceleyeceğiz.</p>
 
@@ -96,6 +100,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "9 dk okuma",
     featured: false,
     keywords: ["SEO uyumlu web sitesi", "teknik SEO", "site hızı", "başlık hiyerarşisi", "mobil uyumlu web sitesi", "SEO kriterleri"],
+    coverImage: "/blog/seo-friendly-website.png",
+    imageAlt: "SEO uyumlu web sitesi için analiz arayüzü görseli",
     content: `
       <p>Birçok işletme sahibi, web sitesini yayınladığı gün binlerce müşterinin kapıda kuyruk olacağını hayal eder. Ancak dijital dünyanın gerçekliği bundan biraz farklıdır. Dünyanın en güzel, en şık web sitesine sahip olabilirsiniz; fakat Google, Yandex veya Bing gibi arama motorları bu sitenin ne hakkında olduğunu anlayamıyorsa, potansiyel müşterileriniz sizi asla bulamaz. İşte tam bu noktada karşımıza "SEO Uyumlu Web Sitesi" kavramı çıkıyor. Peki, herkesin dilindeki bu SEO uyumlu web sitesi tam olarak nedir ve temel kriterleri nelerdir? Gelin, dijital görünürlüğün şifrelerini birlikte çözelim.</p>
 
@@ -165,6 +171,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "8 dk okuma",
     featured: false,
     keywords: ["e-ticaret sitesi kurmak", "e-ticaret altyapısı", "online satış sitesi", "ödeme sistemi", "ürün yönetimi", "mobil e-ticaret"],
+    coverImage: "/blog/ecommerce-website.png",
+    imageAlt: "E-ticaret sitesi için ödeme ve ürün akışı arayüzü görseli",
     content: `
       <p>Geleneksel perakende hızlı bir dönüşüm içinde. Artık müşterilerinizin büyük bir kısmı sokak mağazalarında dolaşmak yerine, oturdukları yerden telefon ekranlarını kaydırarak alışveriş yapmayı tercih ediyor. Bu devasa potansiyeli gören birçok girişimci ve işletme sahibi e-ticaret dünyasına adım atmak istiyor. Ancak bir e-ticaret sitesi kurmak, sadece bir web sitesi açıp içine birkaç ürün fotoğrafı koymaktan çok daha karmaşık ve stratejik bir süreçtir. Fiziksel bir mağaza açarken lokasyon, vitrin, yazar kasa ve müşteri hizmetleri ne kadar önemliyse; e-ticarette de altyapı, ödeme sistemleri, kullanıcı deneyimi ve operasyon yönetimi aynı derecede kritiktir.</p>
 
@@ -220,6 +228,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 dk okuma",
     featured: false,
     keywords: ["dönüşüm odaklı web sitesi", "müşteri kazanımı", "web site tasarımı", "kullanıcı deneyimi", "dijital pazarlama"],
+    coverImage: "/blog/customer-generating-website.png",
+    imageAlt: "Müşteri kazandıran web sitesi için dönüşüm odaklı arayüz görseli",
     content: `
       <p>Birçok işletme sahibi, marka bilinirliği yaratmak ve satışlarını artırmak amacıyla dijital reklamlara devasa bütçeler harcar. Instagram, Facebook veya Google reklamları sayesinde binlerce kişi işletmenin web sitesine tıklar. Ancak günün sonunda ne form dolduran vardır ne de telefon açan. Bu senaryo tanıdık geldi mi? Reklamlar işe yaramamış değildir; sorun, reklamların yönlendirdiği web sitesinin görevini yerine getirememesidir. İyi tasarlanmış bir web sitesi, sadece estetik olarak göze hitap eden bir tasarım demek değildir. İyi bir web sitesi, doğru stratejiyle kurgulanmış 7/24 çalışan bir satış temsilcisidir.</p>
 
@@ -276,6 +286,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "8 dk okuma",
     featured: false,
     keywords: ["sosyal medya yönetimi", "Instagram işletme hesabı", "dijital pazarlama", "marka güveni", "SEO ve sosyal medya"],
+    coverImage: "/blog/social-media-strategy.png",
+    imageAlt: "Sosyal medya yönetimi ve dijital strateji görseli",
     content: `
       <p>Günümüzde yeni bir işletme kuran veya mevcut işini dijitale taşımak isteyen pek çok girişimcinin ilk hamlesi bir Instagram veya TikTok hesabı açmak oluyor. "Sosyal medyada aktif olursam, güzel görseller paylaşırsam müşteriler beni bulur ve satın alırlar" düşüncesi son derece yaygın. Ancak zaman geçtikçe, yüksek takipçi sayılarına veya binlerce beğeniye rağmen istenen satış hedeflerine ulaşılamadığı, müşteri güveninin tam sağlanamadığı görülüyor. Peki, işletmeler için sosyal medya yönetimi neden tek başına yeterli değildir? Dijital pazarlamada gerçek ve sürdürülebilir başarı nasıl elde edilir? Gelin bu durumu bütünleşik dijital strateji penceresinden inceleyelim.</p>
 
@@ -326,6 +338,8 @@ export const blogPosts: BlogPost[] = [
     readingTime: "7 dk okuma",
     featured: false,
     keywords: ["yönetim paneli nedir", "özel yönetim paneli", "admin panel", "işletme otomasyonu", "içerik yönetimi", "sipariş yönetimi"],
+    coverImage: "/blog/admin-panel.png",
+    imageAlt: "Yönetim paneli için admin dashboard arayüzü görseli",
     content: `
       <p>İşletmeler faaliyetlerine genellikle küçük çaplı başlar. Başlangıçta gelen birkaç siparişi ajandaya not etmek, müşteri bilgilerini basit bir Excel tablosunda tutmak veya stok durumunu göz kararı takip etmek işe yarayabilir. Ancak işler büyümeye, siparişler artmaya ve müşteri kitlesi genişlemeye başladığında, bu manuel yöntemler işletmenin önündeki en büyük engele, hatta bir kaosa dönüşür. Hatalı kesilen faturalar, unutulan randevular, kaybolan müşteri bilgileri veya güncellenmeyen stoklar... İşte işletmeleri bu operasyonel darboğazdan kurtaran, süreçleri dijitalleştirerek tek bir merkezden yönetilmesini sağlayan mucizevi çözümlere "Yönetim Paneli" (Admin Panel) adını veriyoruz.</p>
 

@@ -8,11 +8,12 @@ import { usePathname } from "next/navigation"
 import { CONTACT_EMAIL, WHATSAPP_URL } from "@/lib/constants"
 import { Logo } from "@/components/logo"
 const navLinks = [
-  { name: "Hizmetler", href: "/hizmetler", num: "01" },
-  { name: "Projeler", href: "/projeler", num: "02" },
-  { name: "Hakkımızda", href: "/hakkimizda", num: "03" },
-  { name: "Blog", href: "/blog", num: "04" },
-  { name: "İletişim", href: "/iletisim", num: "05" },
+  { name: "Ana Sayfa", href: "/", num: "01" },
+  { name: "Hizmetler", href: "/hizmetler", num: "02" },
+  { name: "Projeler", href: "/projeler", num: "03" },
+  { name: "Hakkımızda", href: "/hakkimizda", num: "04" },
+  { name: "Blog", href: "/blog", num: "05" },
+  { name: "İletişim", href: "/iletisim", num: "06" },
 ]
 
 export function Navigation() {

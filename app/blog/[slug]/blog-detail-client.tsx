@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { BlogPost } from "@/lib/blog"
 
 interface BlogDetailClientProps {
@@ -71,6 +72,24 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
             transition={{ duration: 0.8, delay: 0.4 }}
           />
 
+          {post.coverImage && (
+            <motion.div
+              className="relative w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden mb-16 border border-zinc-200 bg-zinc-50"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Image
+                src={post.coverImage}
+                alt={post.imageAlt || post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1200px) 100vw, 1200px"
+                priority
+              />
+            </motion.div>
+          )}
+
           {/* Article Content */}
           <motion.div
             className="w-full max-w-none 
@@ -130,9 +149,20 @@ export function BlogDetailClient({ post, relatedPosts }: BlogDetailClientProps) 
                 >
                   <Link
                     href={`/blog/${relatedPost.slug}`}
-                    className="group flex flex-col justify-between h-full p-8 rounded-3xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                    className="group flex flex-col justify-between h-full p-6 md:p-8 rounded-3xl border border-zinc-200 bg-white hover:border-zinc-300 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
-                    <div>
+                    {relatedPost.coverImage && (
+                      <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden mb-6 border border-zinc-100">
+                        <Image
+                          src={relatedPost.coverImage}
+                          alt={relatedPost.imageAlt || relatedPost.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                        />
+                      </div>
+                    )}
+                    <div className="flex flex-col flex-grow">
                       <div className="text-xs text-zinc-500 mb-4 font-bold tracking-wider uppercase">{relatedPost.category}</div>
                       <h4 className="font-bold text-xl mb-4 text-zinc-900 group-hover:text-black transition-colors line-clamp-2">
                         {relatedPost.title}

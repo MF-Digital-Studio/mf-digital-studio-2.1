@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { Navigation } from '@/components/navigation'
+import { CookieConsent } from '@/components/cookie-consent'
 import './globals.css'
 
 import { BASE_URL, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_NAME } from '@/lib/constants'
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
+        <CookieConsent />
       </body>
     </html>
   )

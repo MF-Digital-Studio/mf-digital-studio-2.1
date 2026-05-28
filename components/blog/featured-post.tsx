@@ -2,7 +2,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { BlogPost } from "@/lib/blog"
 import { ArrowRight } from "lucide-react"
-import { Logo } from "@/components/logo"
+import Image from "next/image"
 
 export function FeaturedPost({ post }: { post: BlogPost }) {
   return (
@@ -37,11 +37,21 @@ export function FeaturedPost({ post }: { post: BlogPost }) {
           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
         </div>
       </div>
-      <div className="order-1 lg:order-2 aspect-square md:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-zinc-50 to-zinc-100 border border-zinc-200 relative flex items-center justify-center">
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-        <div className="opacity-20 select-none mix-blend-overlay">
-          <Logo variant="black" className="w-48 h-auto pointer-events-none" />
-        </div>
+      <div className="order-1 lg:order-2 aspect-square md:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden border border-zinc-200 relative group-hover:border-zinc-300 transition-colors">
+        {post.coverImage ? (
+          <Image
+            src={post.coverImage}
+            alt={post.imageAlt || post.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+            priority
+          />
+        ) : (
+          <div className="w-full h-full bg-zinc-100 flex items-center justify-center">
+            <span className="text-zinc-400">Görsel Yok</span>
+          </div>
+        )}
       </div>
     </motion.article>
   )

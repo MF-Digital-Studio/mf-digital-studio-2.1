@@ -14,6 +14,7 @@ export default function AboutPage() {
       <ValuesSection />
       <AboutFaqSection />
       <TeamSection />
+      <WhoWeAreSection />
       <div className="dark">
         <FooterSection />
       </div>
@@ -52,7 +53,7 @@ function AboutHero() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             className="text-[#666] max-w-[480px] text-[17px] leading-[1.8] font-medium"
           >
-            2026'dan bu yana markaların dijital dünyada güçlü bir iz bırakmasına yardımcı oluyoruz. Yaratıcılık, strateji ve teknolojiyi bir araya getiriyoruz.
+            2025'dan bu yana markaların dijital dünyada güçlü bir iz bırakmasına yardımcı oluyoruz. Yaratıcılık, strateji ve teknolojiyi bir araya getiriyoruz.
           </motion.p>
 
           <motion.div
@@ -212,7 +213,7 @@ function TeamSection() {
               </div>
               <h3 className="font-syne text-lg font-bold text-black mb-1">{member.name}</h3>
               <p className="text-green-500 text-[13px] uppercase tracking-[0.1em] font-medium mb-3">{member.role}</p>
-              <p className="text-[#666] text-[13px] leading-[1.8] line-clamp-2 mb-4">{member.bio}</p>
+              <p className="text-[#666] text-[13px] leading-[1.8] mb-4">{member.bio}</p>
 
               <div className="flex items-center gap-4 mt-auto">
                 <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-black/40 hover:text-green-500 transition-colors">
@@ -330,8 +331,8 @@ function AboutFaqSection() {
                   </h3>
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${isOpen
-                        ? "border-green-500 bg-green-500 text-white"
-                        : "border-[rgba(0,0,0,0.12)] bg-transparent text-black group-hover:border-black/30"
+                      ? "border-green-500 bg-green-500 text-white"
+                      : "border-[rgba(0,0,0,0.12)] bg-transparent text-black group-hover:border-black/30"
                       }`}
                   >
                     {isOpen ? (
@@ -361,6 +362,99 @@ function AboutFaqSection() {
             )
           })}
         </motion.div>
+      </div>
+    </section>
+  )
+}
+
+function WhoWeAreSection() {
+  return (
+    <section className="bg-white py-[120px] border-t border-black/5">
+      <div className="container mx-auto max-w-7xl px-4 md:px-6">
+        {/* Intro */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <span className="text-green-500 text-xs font-bold uppercase tracking-widest">BİZ KİMİZ?</span>
+            <h2 className="font-syne text-3xl md:text-4xl font-bold text-black mt-4 leading-tight">
+              MF Digital Studio, markalar için çalışan dijital sistemler kuran iki kişilik yaratıcı bir stüdyodur.
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="flex flex-col gap-6 text-[#333] text-[16px] md:text-[17px] leading-[1.8]"
+          >
+            <p>
+              MF Digital Studio, web tasarım, e-ticaret, SEO, sosyal medya yönetimi ve yönetim paneli geliştirme alanlarında markalara uçtan uca dijital çözümler sunan bağımsız bir dijital stüdyodur.
+            </p>
+            <p>
+              Bizim için iyi bir dijital iş sadece güzel görünen bir tasarımdan ibaret değildir. Bir web sitesi, marka için güven oluşturmalı, kullanıcıyı doğru yönlendirmeli, işletmenin ihtiyaçlarına cevap vermeli ve uzun vadede ölçülebilir bir değer üretmelidir.
+            </p>
+            <p>
+              Bu yüzden her projeye aynı şablonla yaklaşmıyoruz. Önce markayı, hedef kitlesini, mevcut dijital varlığını ve gerçek ihtiyacını anlamaya çalışıyoruz. Ardından tasarım, yazılım, içerik ve strateji tarafını birlikte düşünerek markaya özel bir dijital sistem oluşturuyoruz.
+            </p>
+            <p>
+              Bugün MF Digital Studio olarak özellikle küçük ve orta ölçekli işletmelerin dijitalde daha profesyonel, güvenilir ve erişilebilir görünmesine odaklanıyoruz. Amacımız sadece web sitesi yapmak değil; markaların dijitalde daha net konumlanmasını, daha iyi anlatılmasını ve daha fazla doğru müşteriye ulaşmasını sağlamak.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Highlighted Statement */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="bg-[#fafafa] border border-black/5 rounded-2xl p-8 md:p-12 mb-24 text-center max-w-4xl mx-auto"
+        >
+          <p className="font-syne text-xl md:text-2xl font-bold text-black leading-relaxed">
+            “Bizim için her proje, markanın dijitalde daha güçlü görünmesi ve daha doğru müşterilerle buluşması için kurulan bir sistemdir.”
+          </p>
+        </motion.div>
+
+        {/* Process */}
+        <div className="flex flex-col gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col gap-2"
+          >
+            <h3 className="font-syne text-2xl font-bold text-black">Nasıl Çalışıyoruz?</h3>
+            <div className="h-[2px] w-12 bg-green-500"></div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { num: "01", title: "Keşif", desc: "Markanın ihtiyacını, hedef kitlesini ve mevcut dijital durumunu analiz ederiz." },
+              { num: "02", title: "Strateji", desc: "Projenin amacını, kullanıcı yolculuğunu, içerik yapısını ve teknik gereksinimlerini netleştiririz." },
+              { num: "03", title: "Tasarım & Geliştirme", desc: "Markanın kimliğine uygun, hızlı, modern ve kullanıcı odaklı dijital deneyimler üretiriz." },
+              { num: "04", title: "Yayın & Gelişim", desc: "Projeyi yayına aldıktan sonra performans, içerik ve geliştirme tarafında büyümeye açık bir yapı kurarız." }
+            ].map((step, i) => (
+              <motion.div
+                key={step.num}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.15 }}
+                className="flex flex-col border-t border-black/10 pt-6"
+              >
+                <span className="text-green-500 font-syne font-bold text-sm mb-4">{step.num}</span>
+                <h4 className="font-syne text-lg font-bold text-black mb-3">{step.title}</h4>
+                <p className="text-[#666] text-[14px] leading-[1.7]">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
