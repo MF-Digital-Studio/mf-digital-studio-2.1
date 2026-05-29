@@ -87,16 +87,46 @@ function ContactHero() {
 function MainContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false)
+    setError("")
+    
+    try {
+      const formData = new FormData(e.currentTarget)
+      const data = {
+        name: formData.get('name'),
+        company: formData.get('company'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        service: formData.get('service'),
+        message: formData.get('message'),
+        honeypot: formData.get('honeypot'),
+      }
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      const result = await res.json()
+
+      if (!res.ok) {
+        throw new Error(result.error || 'Bir hata oluştu')
+      }
+
       setIsSuccess(true)
+      e.currentTarget.reset()
       setTimeout(() => setIsSuccess(false), 5000)
-    }, 1500)
+    } catch (err: any) {
+      console.error(err)
+      setError("Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const infoCards = [
@@ -206,31 +236,34 @@ function MainContactSection() {
                     className="flex flex-col gap-5 relative z-10"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      {/* Honeypot field for basic spam protection */}
+                      <input type="text" name="honeypot" className="hidden" tabIndex={-1} autoComplete="off" />
+                      
                       <div className="flex flex-col gap-2">
                         <label className="text-[13px] text-[#a1a1aa] uppercase tracking-wider font-semibold px-1">Ad Soyad *</label>
-                        <input required type="text" placeholder="John Doe" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
+                        <input required type="text" name="name" placeholder="John Doe" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
                       </div>
                       <div className="flex flex-col gap-2">
                         <label className="text-[13px] text-[#a1a1aa] uppercase tracking-wider font-semibold px-1">Marka / İşletme *</label>
-                        <input required type="text" placeholder="Şirketiniz" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
+                        <input required type="text" name="company" placeholder="Şirketiniz" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-2">
                         <label className="text-[13px] text-[#a1a1aa] uppercase tracking-wider font-semibold px-1">E-posta *</label>
-                        <input required type="email" placeholder="ornek@sirket.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
+                        <input required type="email" name="email" placeholder="ornek@sirket.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
                       </div>
                       <div className="flex flex-col gap-2">
                         <label className="text-[13px] text-[#a1a1aa] uppercase tracking-wider font-semibold px-1">Telefon / WhatsApp</label>
-                        <input type="tel" placeholder="+90 (___) ___ __ __" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
+                        <input type="tel" name="phone" placeholder="+90 (___) ___ __ __" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all" />
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-2">
                       <label className="text-[13px] text-[#a1a1aa] uppercase tracking-wider font-semibold px-1">Hizmet Seçimi</label>
                       <div className="relative">
-                        <select className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all appearance-none cursor-pointer">
+                        <select name="service" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all appearance-none cursor-pointer">
                           <option value="web" className="bg-[#0a0a0a] text-white">Web Sitesi</option>
                           <option value="ecom" className="bg-[#0a0a0a] text-white">E-Ticaret</option>
                           <option value="seo" className="bg-[#0a0a0a] text-white">SEO</option>
@@ -244,8 +277,12 @@ function MainContactSection() {
 
                     <div className="flex flex-col gap-2">
                       <label className="text-[13px] text-[#a1a1aa] uppercase tracking-wider font-semibold px-1">Proje Detayı / Mesaj *</label>
-                      <textarea required placeholder="Bize biraz hedeflerinizden ve projenizin detaylarından bahsedin..." rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all resize-none" />
+                      <textarea required name="message" placeholder="Bize biraz hedeflerinizden ve projenizin detaylarından bahsedin..." rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-white/50 focus:bg-white/[0.07] transition-all resize-none" />
                     </div>
+
+                    {error && (
+                      <p className="text-red-500 text-sm text-center">{error}</p>
+                    )}
 
                     <button 
                       disabled={isSubmitting}
