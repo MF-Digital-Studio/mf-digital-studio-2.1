@@ -69,15 +69,15 @@ export function FooterSection({ hideCta = false }: { hideCta?: boolean } = {}) {
             {/* Button Container */}
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-4 w-full">
               {/* Button 1 — İletişime Geç */}
-              <a
-                href="#iletisim"
+              <Link
+                href="/iletisim"
                 className="group relative flex w-full sm:w-auto items-center justify-center gap-3 overflow-hidden rounded-[100px] bg-white px-[36px] py-[16px] transition-all duration-[300ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03] hover:bg-accent text-black"
               >
                 <span className="font-syne text-[15px] font-bold">
                   İletişime Geç
                 </span>
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
               {/* Button 2 — WhatsApp */}
               <a
